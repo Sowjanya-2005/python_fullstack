@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link="stylesheet" href="{{url_for('static',filename='css/static/style.css')}}">css/style.css">
-    <title>Course page</title>
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{url_for('static',filename='css/static/style.css')}}">
+  <title>Course page</title>
+</head>
+
 <body>
   <header>
     Home <br />
@@ -14,7 +16,7 @@
     <nav>
       <a href="/">Home</a>
       <a href="/about">About</a>
-      <a href="/course">Course</a>
+      <a href="/courses">Courses</a>
       <a href="/trainers">Trainers</a>
       <a href="/register">Register</a>
       <a href="/login">Login</a>
@@ -30,14 +32,17 @@
         <th>Mode</th>
       </tr>
       <tr>
-        <td id="courseName">Python FullStack</td>
-        <td id="courseDuration">6 Months</td>
-        <td id="courseMode">Offline</td>
+        <td>Python FullStack</td>
+        <td id="courseName">python fullstack</td>
+        <td id="courseDuration">6 months</td>
+        <td id="courseMode">offline</td>
+        <td>6 Months</td>
+        <td>Offline</td>
       </tr>
     </table>
     <br>
-    <button id="nextCourseBtn">Next Course</button>
-    <button id="applyCourseBtn">Apply Now</button>
+    <button id="nextCourseBtn">next course </button>
+    <button id="applyCourseBtn">apply now</button>
     <section>
       <h2>Learning Path</h2>
       <ol>
@@ -50,7 +55,6 @@
     </section>
   </main>
   <footer>
-    
 
     <hr>
 
@@ -69,7 +73,7 @@
     <a href="#">LinkedIn</a>
 
   </footer>
-  <script src="{{url_for('static',filename='js/static/script.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/static/script.js') }}"></script>
 </body>
 
 </html>

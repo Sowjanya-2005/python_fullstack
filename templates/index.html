@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{{url_for('static',filename='css/static/style.css')}}">css/style.css">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/static/style.css')}}">
   <title>Home</title>
 </head>
 
@@ -16,7 +16,7 @@
     <nav>
       <a href="/">Home</a>
       <a href="/about">About</a>
-      <a href="/course">Course</a>
+      <a href="/courses">Courses</a>
       <a href="/trainers">Trainers</a>
       <a href="/register">Register</a>
       <a href="/login">Login</a>
@@ -25,18 +25,18 @@
   </header>
   <main>
     <section>
-      <h2 id="welcome">Welcome to NRIIT Learning Management System</h2>
+      <h2 id = "welcome">Welcome to NRIIT Learning Management System</h2>
       <p>
         The NRIIT Management System helpsstudents explore courses, resgister online, learn from experienced trainers and
         track their learning journey.
       </p>
-      <p id="message">learning never stops</p>
-      <img src="{{ url for('static', filename='image/banner.jpg')}} "alt="LMS Banner" width=" 800" class="banner">
+      <p id ="message">Learning never stops</p>
+      <img src="{{ url_for('static',filename='image/banner.jpg')}} " alt="LMS Banner" width="800" clas="banner">
       <br><br>
-      <button onclick="showmessage()">Click Me</button>
-      <button onclick="changeHeading()">change Heading</button>
+      <button onclick="showmessage()">click me</button>
+      <button onclick="changeHeading()">changeHeading</button>
       <button id="btnGreeting">Welcome</button>
-    </section>
+        </section>
     <section>
       <h2>Why choose NRIIT?</h2>
       <ul>
@@ -53,6 +53,7 @@
       </article>
     </section>
   </main>
+  
   <footer>
 
     <hr>
@@ -72,10 +73,7 @@
     <a href="#">LinkedIn</a>
 
   </footer>
-  <script src="{{url_for('static',filename='js/static/script.js')}}"></script>
-   </body>
-</html >
-  
+    <script src="{{ url_for('static', filename='js/static/script.js') }}"></script>
+</body>
 
-
-  
+</html>
