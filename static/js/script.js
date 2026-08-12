@@ -1,13 +1,16 @@
+
 // Register form validation & API call
 let registerForm = document.getElementById("registerForm");
 if (registerForm) {
     registerForm.addEventListener("submit", function (event) {
-        event.preventDefault(); //stop form from submitting the old way
-        Let name = document.getElementById("name").value;
-        Let email = document.getElementById("email").value;
-        Let password = document.getElementById("password").value;
+        event.preventDefault(); // Stop form from submitting the old way
+        
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        
         let dobInput = document.querySelector('input[name="dob"]');
-        Let dob = dobInput ?"dobInput.value :'';
+        let dob = dobInput ? dobInput.value : '';
         
         let genderInput = document.querySelector('input[name="gender"]:checked');
         let gender = genderInput ? genderInput.value : '';
@@ -112,6 +115,88 @@ if (btnNextTrainer) {
     });
 }
 
-    
+// --- Very Simple Dynamic Courses Section ---
 
+let coursesList = [
+    { name: "Python FullStack", duration: "6 Months", mode: "Offline", path: ["HTML", "CSS", "JavaScript", "Flask", "Database"] },
+    { name: "Web Development", duration: "3 Months", mode: "Online", path: ["HTML", "CSS", "JavaScript", "React", "NodeJS"] },
+    { name: "Data Science", duration: "8 Months", mode: "Hybrid", path: ["Python", "Pandas", "NumPy", "Machine Learning", "AI"] }
+];
+let currentCourse = 0;
 
+let btnNextCourse = document.getElementById("nextCourseBtn");
+if (btnNextCourse) {
+    btnNextCourse.addEventListener("click", function() {
+        // Go to the next course, and loop back to the start if at the end
+        currentCourse = currentCourse + 1;
+        if (currentCourse >= coursesList.length) {
+            currentCourse = 0;
+        }
+        
+        let course = coursesList[currentCourse];
+        
+        // Update the HTML table with new data
+        document.getElementById("courseName").innerHTML = course.name;
+        document.getElementById("courseDuration").innerHTML = course.duration;
+        document.getElementById("courseMode").innerHTML = course.mode;
+        
+        // Update the HTML for learning path using simple loop
+        let pathElem = document.getElementById("courseLearningPath");
+        if (pathElem) {
+            let pathHTML = "";
+            for (let i = 0; i < course.path.length; i++) {
+                pathHTML += "<li>" + course.path[i] + "</li>";
+            }
+            pathElem.innerHTML = pathHTML;
+        }
+    });
+}
+
+// Apply Course logic
+let btnApplyCourse = document.getElementById("applyCourseBtn");
+if (btnApplyCourse) {
+    btnApplyCourse.addEventListener("click", function() {
+        let courseName = document.getElementById("courseName").innerHTML;
+        alert("Congratulations! You have successfully applied for the " + courseName + " course.");
+    });
+}
+
+// --- Popular Courses Section ---
+let popularCoursesList = [
+    { name: "Python FullStack", desc: "Learn HTML, CSS, JavaScript, SQL and Flask" },
+    { name: "Web Development", desc: "Learn HTML, CSS, JavaScript, React and Node.js" },
+    { name: "Data Science", desc: "Learn Python, Pandas, NumPy, Machine Learning and AI" }
+];
+let currentPopularCourse = 0;
+
+function updatePopularCourse() {
+    let course = popularCoursesList[currentPopularCourse];
+    let nameElem = document.getElementById("popularCourseName");
+    let descElem = document.getElementById("popularCourseDesc");
+    if (nameElem && descElem) {
+        nameElem.innerHTML = course.name;
+        descElem.innerHTML = course.desc;
+    }
+}
+
+let btnNextPopular = document.getElementById("nextPopularCourseBtn");
+if (btnNextPopular) {
+    btnNextPopular.addEventListener("click", function() {
+        currentPopularCourse = currentPopularCourse + 1;
+        if (currentPopularCourse >= popularCoursesList.length) {
+            currentPopularCourse = 0;
+        }
+        updatePopularCourse();
+    });
+}
+
+let btnPrevPopular = document.getElementById("prevPopularCourseBtn");
+if (btnPrevPopular) {
+    btnPrevPopular.addEventListener("click", function() {
+        currentPopularCourse = currentPopularCourse - 1;
+        if (currentPopularCourse < 0) {
+            currentPopularCourse = popularCoursesList.length - 1;
+        }
+        updatePopularCourse();
+    });
+}
