@@ -200,6 +200,7 @@ if (btnPrevPopular) {
         updatePopularCourse();
     });
 }
+
 // --- Tasks Management ---
 
 // Load Tasks
